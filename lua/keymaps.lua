@@ -25,6 +25,15 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without yankin
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' })
 
+--Tabs
+vim.keymap.set('n', '<leader>wn', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>wx', ':tabclose<CR>', { desc = 'Close tab' })
+
+-- Tab moving
+vim.keymap.set('n', '<leader>wm', ':tabmove<CR>', { desc = 'Move tab' })
+vim.keymap.set('n', '<leader>w>', ':tabmove +1<CR>', { desc = 'Move tab right' })
+vim.keymap.set('n', '<leader>w<', ':tabmove -1<CR>', { desc = 'Move tab left' })
+
 -- Better window navigation
 -- See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
