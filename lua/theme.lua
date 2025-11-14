@@ -1,5 +1,5 @@
 -- theme & transparency
-vim.cmd.colorscheme 'unokai-pastel' -- Set colorscheme
+vim.cmd.colorscheme 'unokai' -- Set colorscheme
 
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' }) --set transparent for current buffer
 vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' }) --Set transparency for non current buffers
@@ -51,6 +51,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 })
 -- apply immediately if theme already set
 vim.cmd.hi 'clear' -- optional if you want a hard refresh
-vim.cmd.colorscheme 'unokai-pastel'
+vim.cmd.colorscheme 'quieter' -- re-apply your theme
 -- Apply immediately if theme already loaded
 set_transparent()

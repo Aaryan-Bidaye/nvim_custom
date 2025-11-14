@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  'github/copilot.vim',
   'norcalli/nvim-colorizer.lua',
   'christoomey/vim-tmux-navigator',
   {
@@ -68,6 +69,7 @@ return {
     config = function()
       local jt = require 'jupynvim'
       local ipynb = require 'jupynvim.ipynb'
+      jt.setup()
       ipynb.setup {
         send = function(cells)
           jt.start()
@@ -82,9 +84,11 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'custom_unokai_pastel',
-          section_separators = { left = '', right = '' },
-          component_separators = { left = '', right = '' },
+          theme = 'quieter',
+          --section_separators = { left = '', right = '' },
+          section_separators = '',
+          --component_separators = { left = '', right = '' },
+          component_separators = '',
           globalstatus = true,
         },
       }

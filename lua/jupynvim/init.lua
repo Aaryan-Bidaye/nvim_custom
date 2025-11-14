@@ -285,7 +285,7 @@ function M.setup(opts)
     map('n', '<leader>jk', M.stop, 'stop kernel')
     map('n', '<leader>jr', M.restart, 'restart kernel')
     map('n', '<leader>jc', M.cell, 'run cell')
-    map('v', '<leader>jc', M.sel, 'run selection')
+    map('x', '<leader>jc', M.sel, 'run selection')
     map('n', '<leader>jf', M.file, 'run file')
     map('n', '<leader>jo', M.out, 'focus output split')
   end

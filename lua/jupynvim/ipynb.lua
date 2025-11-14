@@ -220,6 +220,11 @@ function M.setup(opts)
   vim.api.nvim_create_user_command('JupyNbRunCell', function()
     M.run_cell()
   end, {})
+
+  vim.api.nvim_create_user_command('JupyNbNew', function(cmd)
+    -- :JupyNbNew (prompts)  or :JupyNbNew name.ipynb
+    M.new(cmd.args)
+  end, { nargs = '?', complete = 'file' })
 end
 
 -- Open a .ipynb into the current buffer (replaces contents)
@@ -361,6 +366,72 @@ function M.run_all()
     return
   end
   state.opts.send(code_cells)
+end
+
+-- create a new .ipynb on disk and (optionally) open it
+local function detect_py_ver()
+  local line = vim.fn.systemlist('python3 -V')[1] or ''
+  return (line:match 'Python%s+([%d%.]+)') or '3.x'
+end
+
+function M.new(path, opts)
+  opts = opts or {}
+  -- Ask for a name if none provided
+  if not path or path == '' then
+    path = vim.fn.input('New notebook name: ', 'Untitled.ipynb')
+  end
+  if not path:match '%.ipynb$' then
+    path = path .. '.ipynb'
+  end
+
+  local nb = {
+    cells = {
+      {
+        cell_type = 'markdown',
+        metadata = {},
+        -- Jupyter likes source as a list of lines (often each ending with \n)
+        source = { '# New Notebook\n' },
+      },
+      {
+        cell_type = 'code',
+        metadata = {},
+        execution_count = vim.NIL, -- keep the key with null (nil would drop key)
+        outputs = {},
+        source = { 'print("Hello World!")\n' },
+      },
+    },
+    metadata = {
+      kernelspec = {
+        name = 'python3',
+        language = 'python',
+        display_name = 'Python 3',
+      },
+      language_info = {
+        name = 'python',
+        version = detect_py_ver(),
+      },
+    },
+    nbformat = state.opts.nbformat,
+    nbformat_minor = state.opts.nbformat_minor,
+  }
+
+  local json = json_encode(nb)
+  if not json then
+    vim.notify('[ipynb] JSON encode failed while creating notebook', vim.log.levels.ERROR)
+    return
+  end
+  local ok, err = write_file(path, json)
+  if not ok then
+    vim.notify('[ipynb] Create failed: ' .. tostring(err), vim.log.levels.ERROR)
+    return
+  end
+
+  vim.notify('[ipynb] Created: ' .. path, vim.log.levels.INFO)
+
+  -- Open it right away unless the caller says otherwise
+  if opts.open ~= false then
+    M.open(path)
+  end
 end
 
 return M

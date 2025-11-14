@@ -1,6 +1,6 @@
 -- Key mappings
 
---vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>', { desc = 'Clear search highlights' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 -- TIP: Disable arrow keys in normal mode
@@ -64,3 +64,7 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 --Oil Float
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
+
+--JupyNvim
+vim.keymap.set('n', '<leader>no', '<CMD>JupyNbOpen<CR>', { desc = 'Open Jupyter Notebook' })
+vim.keymap.set('n', '<leader>ns', '<CMD>JupyNbSave<CR>', { desc = 'Save Jupyter Notebook' })

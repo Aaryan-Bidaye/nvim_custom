@@ -327,14 +327,14 @@ vim.keymap.set({ 't', 'n' }, '<C-\\>', function()
 end, { desc = 'Close current window (float or split)' })
 
 -- Close current floating terminal with <Esc> in terminal mode
-vim.keymap.set('t', '<Esc>', function()
-  -- If a terminal window exists and is floating, close it
-  if state.mode == 'float' and state.win and vim.api.nvim_win_is_valid(state.win) then
-    vim.api.nvim_win_close(state.win, true)
-    state.win = nil
-    state.mode = nil
-  end
-end, { noremap = true, silent = true, desc = 'Close floating terminal with <Esc>' })
+--vim.keymap.set('t', '<Esc>', function()
+--  -- If a terminal window exists and is floating, close it
+--  if state.mode == 'float' and state.win and vim.api.nvim_win_is_valid(state.win) then
+--    vim.api.nvim_win_close(state.win, true)
+--    state.win = nil
+--    state.mode = nil
+--  end
+--end, { noremap = true, silent = true, desc = 'Close floating terminal with <Esc>' })
 
 -- Default mappings (you can remap these in your config)
 vim.keymap.set('n', '<leader>t', function()
