@@ -1,4 +1,4 @@
--- lua/togterm_plus.lua
+-- lua/togterm.lua
 ---@class TogTermOpts
 ---@field width? integer
 ---@field height? integer

@@ -56,6 +56,12 @@ M.command = {
   c = { fg = p.dim, bg = p.surface },
 }
 
+M.terminal = {
+  a = { fg = p.bg, bg = p.warm, gui = 'bold' }, -- or any color you want
+  b = { fg = p.fg, bg = p.overlay },
+  c = { fg = p.dim, bg = p.surface },
+}
+
 M.inactive = {
   a = { fg = p.subtle, bg = p.bg_alt, gui = 'bold' },
   b = { fg = p.subtle, bg = p.bg_alt },

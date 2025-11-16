@@ -27,6 +27,7 @@ local p = {
   cyan = '#9ab8bf', -- for functions / info
   amber = '#c7aa7a', -- for keywords / warnings
   red = '#d37b7b', -- for errors (still muted)
+  yellow = '#d3c27b', -- for numbers / booleans
 }
 
 local function hi(group, opts)
@@ -47,7 +48,7 @@ hi('FloatBorder', { fg = p.overlay, bg = p.surface })
 hi('WinSeparator', { fg = p.overlay, bg = p.bg })
 
 hi('SignColumn', { fg = p.subtle, bg = p.bg })
-hi('LineNr', { fg = p.subtle, bg = p.bg })
+hi('LineNr', { fg = p.subtle })
 hi('CursorLineNr', { fg = p.fg, bg = p.surface, bold = true })
 
 hi('CursorLine', { bg = p.surface })
@@ -131,16 +132,17 @@ hi('ErrorMsg', { fg = p.red, bold = true })
 hi('WarningMsg', { fg = p.amber })
 
 hi('DiagnosticError', { fg = p.red })
-hi('DiagnosticWarn', { fg = p.amber })
+hi('DiagnosticWarn', { fg = p.yellow })
 hi('DiagnosticInfo', { fg = p.cool })
 hi('DiagnosticHint', { fg = p.subtle })
 hi('DiagnosticOk', { fg = p.cyan })
 
 hi('DiagnosticUnderlineError', { undercurl = true, sp = p.red })
-hi('DiagnosticUnderlineWarn', { undercurl = true, sp = p.amber })
+hi('DiagnosticUnderlineWarn', { undercurl = true, sp = p.yellow })
 hi('DiagnosticUnderlineInfo', { undercurl = true, sp = p.cool })
 hi('DiagnosticUnderlineHint', { undercurl = true, sp = p.subtle })
 
+hi('QuickFixLine', { fg = p.fg, bg = p.surface, bold = true })
 -----------------------------------------------------------------------
 -- Diff / Git
 -----------------------------------------------------------------------

@@ -830,6 +830,21 @@ require('lazy').setup({
     },
   },
 })
+require('coderunner').setup {
+  -- "float" or "split"
+  terminal = 'split',
 
+  -- Optionally override or add runners
+  -- runners = {
+  --   python = 'python3 {file}',
+  --   lua = 'lua {file}',
+  --   cpp = 'g++ {file} -std=c++17 -O2 -o /tmp/a.out && /tmp/a.out',
+  --   -- rust = "cargo run",
+  --   -- go   = "go run {file}",
+  -- },
+
+  -- Set this to false if you want to create your own keymaps
+  set_keymaps = true,
+}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
