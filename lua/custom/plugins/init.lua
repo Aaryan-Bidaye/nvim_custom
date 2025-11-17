@@ -6,6 +6,15 @@ return {
   'github/copilot.vim',
   'norcalli/nvim-colorizer.lua',
   'christoomey/vim-tmux-navigator',
+  -- {
+  --   'nvim-tree/nvim-web-devicons',
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     color_icons = true,
+  --     default = true,
+  --   },
+  -- },
   {
     'goolord/alpha-nvim',
     config = function()
@@ -104,7 +113,7 @@ return {
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
-        -- 'icon',
+        'icon',
         'permissions',
         'size',
         'mtime',
@@ -300,7 +309,7 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+    --dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     --dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,

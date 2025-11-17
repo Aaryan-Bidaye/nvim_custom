@@ -160,7 +160,7 @@ hi('GitSignsDelete', { fg = p.red })
 -----------------------------------------------------------------------
 hi('TelescopeNormal', { fg = p.fg, bg = p.surface })
 hi('TelescopeBorder', { fg = p.overlay, bg = p.surface })
-hi('TelescopeSelection', { fg = p.fg, bg = p.overlay })
+hi('TelescopeSelection', { fg = p.bg, bg = p.cool })
 hi('TelescopeMatching', { fg = p.cool, bold = true })
 
 -----------------------------------------------------------------------

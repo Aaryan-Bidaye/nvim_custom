@@ -33,7 +33,7 @@ require 'keymaps'
 require 'options'
 require 'togterm'
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- Command-line completion
 vim.opt.wildmenu = true
