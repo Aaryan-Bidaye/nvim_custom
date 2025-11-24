@@ -1,4 +1,4 @@
--- quiet_gray.lua
+--quieter.lua
 -- A low-saturation gray theme inspired by "quiet", but with clearer contrast.
 
 vim.o.termguicolors = true
@@ -28,6 +28,8 @@ local p = {
   amber = '#c7aa7a', -- for keywords / warnings
   red = '#d37b7b', -- for errors (still muted)
   yellow = '#d3c27b', -- for numbers / booleans
+  green = '#9eb29b',
+  orange = '#d77f46',
 }
 
 local function hi(group, opts)
@@ -59,6 +61,7 @@ hi('VertSplit', { fg = p.overlay, bg = p.bg })
 
 hi('StatusLine', { fg = p.fg, bg = p.surface })
 hi('StatusLineNC', { fg = p.subtle, bg = p.surface })
+--hi('MsgArea', { fg = p.bg, bg = p.green })
 
 hi('Pmenu', { fg = p.fg, bg = p.surface })
 hi('PmenuSel', { fg = p.bg, bg = p.dim, bold = true })
@@ -86,13 +89,13 @@ hi('Comment', { fg = p.comment, italic = true })
 hi('Constant', { fg = p.warm })
 hi('String', { fg = p.warm })
 hi('Character', { fg = p.warm })
-hi('Number', { fg = p.dim })
-hi('Boolean', { fg = p.dim })
-hi('Float', { fg = p.dim })
+hi('Number', { fg = p.amber })
+hi('Boolean', { fg = p.red })
+hi('Float', { fg = p.amber })
 
 -- Identifiers / functions
 hi('Identifier', { fg = p.fg })
-hi('Function', { fg = p.cyan })
+hi('Function', { fg = p.cyan, bold = true })
 
 -- Keywords / control flow
 hi('Statement', { fg = p.dim })
@@ -154,6 +157,16 @@ hi('DiffText', { fg = p.fg, bold = true })
 hi('GitSignsAdd', { fg = p.cyan })
 hi('GitSignsChange', { fg = p.amber })
 hi('GitSignsDelete', { fg = p.red })
+
+-----------------------------------------------------------------------
+-- UndoTree (if you use it)
+-----------------------------------------------------------------------
+---- Undotree colours
+hi('UndoTreeNode', { fg = p.cyan })
+hi('UndoTreeHead', { fg = p.red, bold = true })
+---- optional:
+hi('UndoTreeTimeStamp', { fg = p.subtle })
+hi('UndoTreeBranch', { fg = p.muted })
 
 -----------------------------------------------------------------------
 -- Telescope (if you use it)

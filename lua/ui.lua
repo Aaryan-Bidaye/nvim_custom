@@ -31,6 +31,7 @@ vim.opt.synmaxcol = 300 -- Syntax highlighting limit
 vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.winborder = 'rounded' -- Rounded borders for floating windows
 
 -- Split behavior
 vim.opt.splitbelow = true -- Horizontal splits go below

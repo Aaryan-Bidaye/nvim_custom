@@ -33,3 +33,11 @@ vim.opt.clipboard:append 'unnamedplus' -- Use system clipboard
 vim.opt.modifiable = true -- Allow buffer modifications
 vim.opt.encoding = 'UTF-8' -- Set encoding
 vim.opt.confirm = true -- Ask to confim if performing an operation before saving or other see ':help 'confirm'
+vim.opt.shiftwidth = 2 -- Number of spaces for autoindent
+vim.opt.softtabstop = 2 -- Number of spaces for a tab while editing
+vim.opt.expandtab = false -- Use spaces instead of tabs
+vim.opt.smartindent = true -- Smart indentation
+vim.opt.inccommand = 'split' -- Show effects of command incrementally
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99

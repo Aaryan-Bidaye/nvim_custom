@@ -69,7 +69,11 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 --UndoTree Keymap
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>u', function()
+  vim.cmd.UndotreeToggle()
+  vim.cmd.UndotreeFocus()
+end, { desc = 'Toggle Undo Tree' })
+--vim.keymap.set('n', '<leader>u', ':UndotreeToggle | UndotreeFocus<CR>', { desc = 'Toggle Undo Tree' })
 
 --Oil Float
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })

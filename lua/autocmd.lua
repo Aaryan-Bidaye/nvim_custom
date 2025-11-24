@@ -1,12 +1,6 @@
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    print 'Start Screen'
-  end,
-})
-
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`

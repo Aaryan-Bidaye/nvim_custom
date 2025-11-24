@@ -26,19 +26,19 @@ local default_config = {
   -- Per-filetype run commands.
   -- {file} will be replaced with the actual file path.
   runners = {
-    python = 'python3 {file}',
-    lua = 'lua {file}',
-    javascript = 'node {file}',
-    typescript = 'ts-node {file}',
+    python = 'clear && python3 {file}',
+    lua = 'clear && lua {file}',
+    javascript = 'clear && node {file}',
+    typescript = 'clear && ts-node {file}',
     sh = 'bash {file}',
     zsh = 'zsh {file}',
 
-    c = 'gcc {file} -o /tmp/a.out && /tmp/a.out',
-    cpp = 'g++ {file} -std=c++17 -O2 -o /tmp/a.out && /tmp/a.out',
+    c = 'clear && gcc {file} -o /tmp/a.out && /tmp/a.out',
+    cpp = 'clear && g++ {file} -std=c++17 -O2 -o /tmp/a.out && /tmp/a.out',
 
     -- Compile all .java files in the directory, then run the class
     -- matching the current file name (supports multiple classes).
-    java = 'javac *.java && java {classname}',
+    java = 'clear && javac *.java && java {classname}',
 
     -- Add more if you want:
     -- rust = "cargo run",
